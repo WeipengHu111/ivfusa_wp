@@ -1,10 +1,42 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import babyHands from '../assets/babyHands.jpg';
 
 const Hero = () => {
+  const [offsetY, setOffsetY] = useState(0);
+
+  const handleScroll = () => {
+    const scrollPosition = window.pageYOffset;
+    const windowHeight = window.innerHeight;
+    const textCenterPosition = windowHeight / 8;
+
+    if (scrollPosition < textCenterPosition) {
+      setOffsetY(scrollPosition);
+    } else {
+      setOffsetY(textCenterPosition);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const textStyle = {
+    transform: `translateY(calc(100vh - ${offsetY}px))`,
+    transition: 'transform 0.1s linear', // Smooth transition
+  };
+
+  const containerStyle = {
+    backgroundImage: `url(${babyHands})`,
+    backgroundAttachment: 'fixed',
+    height: '150vh', // Ensure there's enough space to scroll
+  };
+
   return (
-    <div style={{ backgroundImage: `url(${babyHands})` }} className="bg-cover bg-center relative h-screen">
-      <div className='absolute bottom-10 right-10 p-4 text-center flex flex-col justify-center'>
+    <div style={containerStyle} className="bg-cover bg-center relative">
+      <div className='absolute top-0 left-100 right-0 p-4 text-center flex flex-col justify-center' style={textStyle}>
         <h1 className='text-6xl font-bold py-4'>
           让奇迹生辉
         </h1>
@@ -24,5 +56,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
-
