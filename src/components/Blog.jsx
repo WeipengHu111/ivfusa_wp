@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { data } from '../mockData/blogData.js';
+import { useNavigate } from 'react-router-dom';
 
 const Blog = () => {
   //   console.log(data);
   const [blogs, setBlogs] = useState(data);
-
+  const navigate = useNavigate();
   //   Filter Type burgers/pizza/etc
   const filterType = (category) => {
     setBlogs(
@@ -42,7 +43,7 @@ const Blog = () => {
               All
             </button>
             <button
-              onClick={() => filterType('burger')}
+              onClick={() => filterType('burger')}//验证一下
               className='m-1 border-custom-green text-custom-green hover:bg-custom-green hover:text-white'
             >
               Burgers
@@ -106,7 +107,14 @@ const Blog = () => {
           <div
             key={index}
             className='card shadow-lg rounded-xl hover:scale-105 duration-300'
-          >
+            onClick={() => {
+              if (item.category === 'pizza') {
+                navigate(`/Blog_example/Blank_pizza/${index}`);
+              } else if (item.category === 'burger') {
+                navigate(`/Blog_example/Blank_burger/${index}`);
+              }
+            }}
+            >
              <figure>
                 <img
                     src={item.image}
