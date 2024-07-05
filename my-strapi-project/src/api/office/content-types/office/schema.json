@@ -4,26 +4,35 @@
   "info": {
     "singularName": "office",
     "pluralName": "offices",
-    "displayName": "Office"
+    "displayName": "Office",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "Text": {
-      "type": "string",
-      "required": true,
-      "unique": true
-    },
-    "Description": {
-      "type": "blocks"
-    },
     "categories": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::category.category",
       "mappedBy": "offices"
+    },
+    "Description": {
+      "type": "richtext"
+    },
+    "title": {
+      "type": "string"
+    },
+    "COVER": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
     }
   }
 }

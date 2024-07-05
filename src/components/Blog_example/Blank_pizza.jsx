@@ -1,15 +1,18 @@
-// BlankPage.js
-import React from 'react';
-import { Background } from 'react-parallax';
-import clinic_NewEngland from '../../assets/clinic_NewEngland.jpg'
+import React, { useEffect } from 'react';
+import clinic_NewEngland from '../../assets/clinic_NewEngland.jpg';
 
-const Blank_burger = () => {
+const Blank_pizza = () => {
 
   const containerStyle = {
     background: `url(${clinic_NewEngland})`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
-  }
+  };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   return (
     <div style={containerStyle} className="bg-cover bg-center h-screen relative">
       <div className="absolute inset-y-0 right-0 flex flex-col justify-center items-end text-right p-4 pr-16">
@@ -31,4 +34,4 @@ const Blank_burger = () => {
   );
 };
 
-export default Blank_burger;
+export default Blank_pizza;

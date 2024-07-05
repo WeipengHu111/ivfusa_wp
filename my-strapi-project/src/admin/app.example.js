@@ -1,3 +1,6 @@
+import ckeditor5Dll from "ckeditor5/build/ckeditor5-dll.js";
+
+
 const config = {
   locales: [
     // 'ar',
@@ -37,3 +40,5 @@ export default {
   config,
   bootstrap,
 };
+
+
