@@ -40,7 +40,7 @@ function App() {
             <Newsletter />
             <Timeline />
             <Blog />
-            <Map />
+            {/* <Map /> */}
           </>} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/Blog_example/Blank_burger/:id" element={<Blank_burger />} />

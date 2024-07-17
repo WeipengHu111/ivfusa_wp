@@ -1,8 +1,9 @@
-// src/components/Blank_burger.jsx
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { getOfficeContent } from '../../api';
 
 const Blank_burger = () => {
+  const { id } = useParams();
   const [officeContent, setOfficeContent] = useState(null);
 
   useEffect(() => {
@@ -10,13 +11,14 @@ const Blank_burger = () => {
 
     const fetchContent = async () => {
       const data = await getOfficeContent();
-      if (data && data.length > 0) {
-        setOfficeContent(data[0].attributes);
+      const selectedContent = data.find(item => item.id === parseInt(id));
+      if (selectedContent) {
+        setOfficeContent(selectedContent.attributes);
       }
     };
 
     fetchContent();
-  }, []);
+  }, [id]);
 
   const processHtmlContent = (htmlContent) => {
     const parser = new DOMParser();

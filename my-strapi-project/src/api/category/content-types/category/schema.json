@@ -17,21 +17,25 @@
       "required": true,
       "unique": true
     },
-    "offices": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::office.office",
-      "inversedBy": "categories"
-    },
     "COVER": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
+    },
+    "Description": {
+      "type": "blocks"
+    },
+    "offices": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::office.office",
+      "mappedBy": "categories"
     }
   }
 }

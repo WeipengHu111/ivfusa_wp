@@ -4,7 +4,7 @@
   "info": {
     "singularName": "office",
     "pluralName": "offices",
-    "displayName": "Office",
+    "displayName": "Posts",
     "description": ""
   },
   "options": {
@@ -16,7 +16,7 @@
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::category.category",
-      "mappedBy": "offices"
+      "inversedBy": "offices"
     },
     "Description": {
       "type": "richtext"
@@ -25,14 +25,15 @@
       "type": "string"
     },
     "COVER": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     }
   }
 }

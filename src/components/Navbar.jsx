@@ -12,7 +12,7 @@ const Navbar = () => {
 
   const handleScroll = () => {
     const offset = window.scrollY;
-    if (offset > 10) {  // adjust this value based on when to change the bg color
+    if (offset > 100000) {  // adjust this value based on when to change the bg color
       setScrolled(true);
     } else {
       setScrolled(false);
