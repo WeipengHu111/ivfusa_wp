@@ -18,7 +18,7 @@ import Timeline from './components/Timeline';
 import Blog from './components/Blog';
 import Map from './components/Map';
 import Blank_burger from './components/Blog_example/Blank_burger';
-import Blank_pizza from './components/Blog_example/Blank_pizza';
+import Navbar_Blog from './components/navbar_components/Navbar_Blog'; 
 
 function App() {
   return (
@@ -43,8 +43,8 @@ function App() {
             {/* <Map /> */}
           </>} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/Navbar_Blog" element={<Navbar_Blog />} /> 
           <Route path="/Blog_example/Blank_burger/:id" element={<Blank_burger />} />
-          <Route path="/Blog_example/Blank_pizza/:id" element={<Blank_pizza />} />
         </Routes>
         <Footer />
       </div>

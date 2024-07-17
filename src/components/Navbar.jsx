@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { AiOutlineClose, AiOutlineMenu, AiOutlinePhone } from 'react-icons/ai';
+import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png';
 
 const Navbar = () => {
@@ -30,12 +31,14 @@ const Navbar = () => {
   return (
     <div className={`fixed flex justify-between items-center h-16 w-screen px-4 top-0 z-10 
     ${nav ? 'bg-transparent' : (scrolled ? 'bg-[#f1e6c3]/90' : 'bg-transparent')}`}>
-      <img src={logo} alt='Logo' className='w-full m-4' style={{ maxWidth: '120px' }}/> 
+      <Link to="/">
+        <img src={logo} alt='Logo' className='w-full m-4' style={{ maxWidth: '120px' }} />
+      </Link>
       <ul className={`hidden menu md:menu-horizontal bg-base-200 rounded-box ${scrolled ? 'text-black' : 'text-white'}`}>
-        <li >
+        <li>
           <details open>
-            <summary  className='text-lg'>生殖医学解决方案</summary>
-            <ul className={` ${scrolled ? 'text-black bg-white/80': 'text-white bg-transparent'}`}>
+            <summary className='text-lg'>生殖医学解决方案</summary>
+            <ul className={` ${scrolled ? 'text-black bg-white/80' : 'text-white bg-transparent'}`}>
               <li><a>生育力储存</a></li>
               <li><a>试管婴儿</a></li>
               <li>
@@ -54,26 +57,28 @@ const Navbar = () => {
         <li>
           <details open>
             <summary className='text-lg'>关于我们</summary>
-            <ul className={` ${scrolled ? 'text-black bg-white/80': 'text-white bg-transparent'}`}>
+            <ul className={` ${scrolled ? 'text-black bg-white/80' : 'text-white bg-transparent'}`}>
               <li><a>发展历程</a></li>
               <li><a>智特荣誉</a></li>
               <li><a>人才招募</a></li>
             </ul>
           </details>
         </li>
-        <li className='text-lg'><a>博客资讯</a></li>
+        <li className='text-lg'><Link to="/navbar_blog">博客资讯</Link></li> {/* 修改这一行 */}
         <li className='text-lg'><a>联系我们</a></li>
       </ul>
 
       <div onClick={handleNav} className='block md:hidden'>
-          {nav ? <AiOutlineClose size={30} color="black" className='bg-gray-100/90 p-1 rounded-full'/> : <AiOutlineMenu size={30} color="black" className='p-1'/>}
-      </div>                
-      
+        {nav ? <AiOutlineClose size={30} color="black" className='bg-gray-100/90 p-1 rounded-full' /> : <AiOutlineMenu size={30} color="black" className='p-1' />}
+      </div>
+
       <ul className={nav ? 'menu fixed left-0 top-0 w-[70%] h-full justify-start px-4 text-lg bg-gray-100/95 border-r-gray-900 ease-in-out duration-500' : 'ease-in-out duration-500 fixed left-[-100%]'}>
-        <img src={logo} alt='Logo' className='w-full mx-4 mt-1 mb-16' style={{ maxWidth: '120px' }}/> 
-          <li>
+        <Link to="/" onClick={handleNav}>
+          <img src={logo} alt='Logo' className='w-full mx-4 mt-1 mb-16' style={{ maxWidth: '120px' }} />
+        </Link>
+        <li>
           <details open>
-            <summary  className='text-xl'>生殖医学解决方案</summary>
+            <summary className='text-xl'>生殖医学解决方案</summary>
             <ul>
               <li><a>生育力储存</a></li>
               <li><a>试管婴儿</a></li>
@@ -100,7 +105,7 @@ const Navbar = () => {
             </ul>
           </details>
         </li>
-        <li className='text-xl border-t-2 mt-3 pt-3'><a>博客资讯</a></li>
+        <li className='text-xl border-t-2 mt-3 pt-3'><Link to="/navbar_blog">博客资讯</Link></li> {/* 修改这一行 */}
         <li className='text-xl border-t-2 mt-3 pt-3'><a>联系我们</a></li>
       </ul>
     </div>
