@@ -1,5 +1,5 @@
 module.exports = ({ env }) => ({
-  url: env("PUBLIC_URL", "http://localhost:1337"),
+  url: env('PUBLIC_URL', env('NODE_ENV') === 'development' ? 'http://localhost:1337' : 'https://ivfusa-init-wp.onrender.com'),
   host: env('HOST', '0.0.0.0'),
   port: env.int('PORT', 1337),
   admin: {
