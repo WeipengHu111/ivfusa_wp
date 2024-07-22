@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:1337/api/offices?populate=*';
+// const API_URL = 'http://localhost:1337/api/offices?populate=*';
+const API_URL = 'https://strapi-ylzu3.ondigitalocean.app/api/offices?populate=*';
 
 export const getOfficeContent = async () => {
   try {

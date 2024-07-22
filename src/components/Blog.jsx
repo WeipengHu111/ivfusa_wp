@@ -18,7 +18,7 @@ const Blog = () => {
 
       const formattedData = data.map((item) => {
         const coverUrl = item.attributes.COVER?.data?.attributes?.url
-          ? `http://localhost:1337${item.attributes.COVER.data.attributes.url}`
+          ? `https://strapi-ylzu3.ondigitalocean.app${item.attributes.COVER.data.attributes.url}`
           : 'http://localhost:1337/uploads/black_image.jpg';
 
         const categories = item.attributes.categories.data.map(category => category.attributes.Name);

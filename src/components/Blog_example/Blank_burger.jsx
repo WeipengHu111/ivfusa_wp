@@ -28,7 +28,7 @@ const Blank_burger = () => {
     images.forEach((img) => {
       const src = img.getAttribute('src');
       if (src && src.startsWith('../../../../uploads')) {
-        img.setAttribute('src', `http://localhost:1337${src.replace('../../../../', '/')}`);
+        img.setAttribute('src', `https://strapi-ylzu3.ondigitalocean.app${src.replace('../../../../', '/')}`);
       }
     });
 
