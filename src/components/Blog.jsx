@@ -19,7 +19,7 @@ const Blog = () => {
       const formattedData = data.map((item) => {
         const coverUrl = item.attributes.COVER?.data?.attributes?.url
           ? `https://strapi-ylzu3.ondigitalocean.app${item.attributes.COVER.data.attributes.url}`
-          : 'http://localhost:1337/uploads/black_image.jpg';
+          : 'https://upload.wikimedia.org/wikipedia/commons/4/49/A_black_image.jpg';
 
         const categories = item.attributes.categories.data.map(category => category.attributes.Name);
 
@@ -125,7 +125,7 @@ const Blog = () => {
                 className='w-full h-[200px] object-cover rounded-t-lg'
                 onError={(e) => {
                   e.target.onerror = null; // 防止无限循环
-                  e.target.src = 'http://localhost:1337/uploads/black_image.jpg'; // 替换为全黑图片 URL
+                  e.target.src = 'https://upload.wikimedia.org/wikipedia/commons/4/49/A_black_image.jpg'; // 替换为全黑图片 URL
                 }}
               />
             </figure>
