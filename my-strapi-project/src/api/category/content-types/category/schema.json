@@ -28,9 +28,6 @@
         "audios"
       ]
     },
-    "Description": {
-      "type": "blocks"
-    },
     "offices": {
       "type": "relation",
       "relation": "manyToMany",

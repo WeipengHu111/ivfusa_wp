@@ -376,7 +376,6 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
   attributes: {
     Name: Attribute.String & Attribute.Required & Attribute.Unique;
     COVER: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
-    Description: Attribute.Blocks;
     offices: Attribute.Relation<
       'api::category.category',
       'manyToMany',
