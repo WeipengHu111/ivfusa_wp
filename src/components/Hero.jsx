@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import babyHands from '../assets/babyHands.jpg';
+import babyHands from '../assets/newbaby.png';
 
 const Hero = () => {
   const [offsetY, setOffsetY] = useState(0);
@@ -26,6 +26,8 @@ const Hero = () => {
   const textStyle = {
     transform: `translateY(calc(100vh - ${offsetY}px))`,
     transition: 'transform 0.1s linear',
+    textAlign: 'right', // 将文本对齐方式设置为右对齐
+    paddingRight: '10%', // 适当调整右侧的边距
   };
 
   const containerStyle = {
@@ -46,19 +48,12 @@ const Hero = () => {
   return (
     <div style={contentStyle}>
       <div style={containerStyle} className="center top h-screen relative">
-        <div className="absolute top-0 left-50 right-0 p-4 text-center flex flex-col justify-center" style={textStyle}>
+        <div className="absolute top-0 right-0 p-4 flex flex-col justify-center" style={textStyle}>
           <h1 className="text-6xl font-bold py-4">
-            让奇迹生辉
+            让 奇 迹 生 辉
           </h1>
-          <p className="text-xl sm:text-2xl md:text-4xl font-bold py-4">
-            —— 您的私人助孕管家
-          </p>
-          <p className="text-xl md:text-2xl font-bold">
-            坐拥全球顶尖生殖医生、律师、第三方生殖管理机构资源,
-            <br className="hidden md:block" />
-            20年专业经验，服务2000+财富家庭，
-            <br className="hidden md:block" />
-            管家式服务为您提供尊享体验。
+          <p className="text-xl sm:text-2xl md:text-4xl font py-4">
+            —— 您 的 私 人 助 孕 管 家
           </p>
         </div>
       </div>

@@ -106,7 +106,7 @@ const Navbar_Blog = () => {
                 className='w-full h-[200px] object-cover rounded-t-lg'
                 onError={(e) => {
                   e.target.onerror = null;
-                  e.target.src = 'http://localhost:1337/uploads/black_image.jpg';
+                  e.target.src = 'https://upload.wikimedia.org/wikipedia/commons/4/49/A_black_image.jpg';
                 }}
               />
             </figure>
