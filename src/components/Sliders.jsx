@@ -5,6 +5,7 @@ import slider1 from '../assets/slider1.jpg';
 import slider2 from '../assets/slider2.jpg';
 import slider3 from '../assets/slider3.jpg';
 import slider4 from '../assets/slider4.jpg';
+import slider_video from '../assets/slider_video.png';
 
 const Sliders = () => {
 
@@ -108,7 +109,7 @@ const Sliders = () => {
           </div>
           <div 
             className="bg-cover relative h-[500px] w-[300px] md:h-[500px] md:w-[300px] m-4 inline-block hover:scale-105 ease-in-out duration-300 rounded-[1px]"
-            style={{ backgroundImage: `url(${'https://images.unsplash.com/photo-1551405780-03882d5a2ba7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fG9jZWFufGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=800&q=60'})` }}
+            style={{ backgroundImage: `url(${'https://cdn.pixabay.com/photo/2021/11/02/18/58/airline-6763903_1280.png'})` }}
             onClick={()=>document.getElementById('my_modal_slider5').showModal()}
             >
             <div className="absolute top-10 left-4 text-left overflow-hidden">
@@ -152,6 +153,27 @@ const Sliders = () => {
         <AiOutlineLeftCircle className='opacity-50 cursor-pointer hover:opacity-100 mx-3' onClick={slideLeft} size={40} />
         <AiOutlineRightCircle className='opacity-50 cursor-pointer hover:opacity-100' onClick={slideRight} size={40} />
       </div>
+
+      
+      <div className='flex justify-center mt-0 mb-10'>
+        <img 
+          src={slider_video} 
+          alt="Clickable Image" 
+          className='cursor-pointer hover:scale-105 transition-transform duration-300'
+          onClick={() => document.getElementById('image_modal').showModal()}
+        />
+      </div>
+
+      <dialog id="image_modal" className="modal">
+        <div className="modal-box w-11/12 max-w-5xl">
+          <h3 className="font-bold text-3xl">视频</h3>
+          <p className="py-4">这是点击视频后显示的弹出窗口内容。</p>
+          <img className='mx-auto' src={babyHands} alt='Modal Content' />
+        </div>
+        <form method="dialog" className="modal-backdrop">
+          <button>close</button>
+        </form>
+      </dialog>
     </div>
   );
 };
