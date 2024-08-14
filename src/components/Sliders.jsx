@@ -21,7 +21,7 @@ const Sliders = () => {
 
   return (
     <div className='relative flex flex-col h-screen md:h-full justify-center md:pl-4 bg-diyLightYellow'>
-      <h1 className='text-4xl font-bold mt-16 ml-8 mb-16'>了解智特</h1>
+      <h1 className='text-5xl font-bold mt-16 ml-8 mb-16'>了解智特</h1>
       <div className='relative flex items-center w-full'>
         <div id='slider' className='w-full pl-8 overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide'>
           <div 
@@ -155,11 +155,11 @@ const Sliders = () => {
       </div>
 
       
-      <div className='flex justify-center mt-0 mb-10'>
+      <div className='flex justify-center mt-0 mb-0'>
         <img 
           src={slider_video} 
           alt="Clickable Image" 
-          className='cursor-pointer hover:scale-105 transition-transform duration-300'
+          className='w-full cursor-pointer hover:scale-105 transition-transform duration-300'
           onClick={() => document.getElementById('image_modal').showModal()}
         />
       </div>

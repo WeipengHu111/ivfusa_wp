@@ -11,7 +11,9 @@ module.exports = {
         'diyBrown': '#988f7b',
         'diyGray': '#dce2db',
         'diyPurple': '#d5cbc2',
-        'diyLightYellow':'#f9f4ef'
+        'diyLightYellow':'#f9f4ef',
+        'diyLightBrown':'#ba7264',
+        'diyPeach':'#ffebe1'
 
       }
     },

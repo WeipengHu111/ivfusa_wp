@@ -1,44 +1,49 @@
 import React from 'react';
 import { AiOutlineRightCircle, AiOutlineLeftCircle } from "react-icons/ai";
-import babyHands from '../assets/babyHands.jpg';
+import CFP from '../assets/CFP1.png';
+import HRC1 from '../assets/HRC1.png';
+import HRC2 from '../assets/HRC2.png';
+import Japan1 from '../assets/japan1.png';
+import taiwan1 from '../assets/taiwan1.png';
+import taiwan2 from '../assets/taiwan2.png';
 
 const Doctors = () => {
     const data = [
         {
           id: 1,
-          drName: 'Dr. R.G.',
-          drIntro: 'Dr. Guy Ringler',
-          img: 'https://ivfusa.com/uploads/201124/1-201124163159312.jpg',
+          drName: 'CFP',
+          drIntro: 'Dr.Guy Ringler',
+          img: CFP,
         },
         {
           id: 2,
-          drName: 'Dr. Abcde',
-          drIntro: 'abcde shjad aiuhdeh cbueiajeak',
-          img: 'https://images.unsplash.com/photo-1514999037859-b486988734f1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzV8fG9jZWFufGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=800&q=60',
+          drName: 'HRC',
+          drIntro: 'Dr.Jane Frederick',
+          img: HRC1,
         },
         {
           id: 3,
-          drName: 'Dr. Abcde',
-          drIntro: 'abcde shjad aiuhdeh cbueiajeak',
-          img: 'https://images.unsplash.com/photo-1509477887414-681937645173?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDZ8fG9jZWFufGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=800&q=60',
+          drName: 'HRC',
+          drIntro: 'Dr.Robert Boostanfar',
+          img: HRC2,
         },
         {
           id: 4,
-          drName: 'Dr. Abcde',
-          drIntro: 'abcde shjad aiuhdeh cbueiajeak',
-          img: 'https://images.unsplash.com/photo-1454783904586-9fa42a1e8442?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDJ8fG9jZWFufGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=800&q=60',
+          drName: '日本诊所',
+          drIntro: '齐藤将也 医生',
+          img: Japan1,
         },
         {
           id: 5,
-          drName: 'Dr. Abcde',
-          drIntro: 'abcde shjad aiuhdeh cbueiajeak',
-          img: 'https://images.unsplash.com/photo-1530539595977-0aa9890547c4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDR8fG9jZWFufGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=800&q=60',
+          drName: '台湾诊所',
+          drIntro: '陈芊彣 副院长',
+          img: taiwan1,
         },
         {
           id: 6,
-          drName: 'Dr. Abcde',
-          drIntro: 'abcde shjad aiuhdeh cbueiajeak',
-          img: 'https://images.unsplash.com/photo-1542262868-cec49cce6571?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTB8fG9jZWFufGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=800&q=60',
+          drName: '台湾诊所',
+          drIntro: '张甫行医生',
+          img: taiwan2,
         },
       ];
 
@@ -53,16 +58,16 @@ const Doctors = () => {
   };
 
   return (
-    <div className='relative flex flex-col md:pl-4 justify-center w-full' >
-      <div className='relative flex items-center w-full'>
+    <div className='relative flex flex-col md:pl-4 justify-center w-full mt-20' >
+      <div className='relative flex items-center w-full justify-center items-center'>
         <div id='doctor' className='w-full pl-8 overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide'>
           
             {data.map((item) => (
             <div 
-            className="bg-cover bg-center relative h-[344px] w-[344px] m-4 inline-block hover:scale-105 ease-in-out duration-300 rounded-3xl"
+            className="bg-cover bg-center relative h-[350px] w-[350px] m-7 inline-block hover:scale-105 ease-in-out duration-300 rounded-xl"
             style={{ backgroundImage: `url(${item.img})` }}
             alt = '/'>
-            <div className = "absolute bottom-2 left-2 p-2 font-bold bg-white/50 rounded-3xl">
+            <div className = "absolute inset-0 flex flex-col items-center justify-end p-2 font-bold text-white rounded-xl">
               <h1 className='text-l '>{item.drName}</h1>
               <p className='text-xl max-w-[344px]'>{item.drIntro}</p>
             </div>
@@ -72,19 +77,13 @@ const Doctors = () => {
         </div>
         
       </div>
-      <div className='flex flex-row justify-end pr-10 mb-8'>
-        <AiOutlineLeftCircle className='opacity-50 cursor-pointer hover:opacity-100 mx-3' onClick={drSlideLeft} size={40} />
-        <AiOutlineRightCircle className='opacity-50 cursor-pointer hover:opacity-100' onClick={drSlideRight} size={40} />
+      <div className='flex justify-end mt-4 mb-8'>
+        <AiOutlineLeftCircle className='opacity-50 cursor-pointer hover:opacity-100 mx-4' onClick={drSlideLeft} size={60} />
+        <AiOutlineRightCircle className='opacity-50 cursor-pointer hover:opacity-100 mx-4' onClick={drSlideRight} size={60} />
       </div>
     </div>
   );
 };
 
 export default Doctors;
-
-
-
-
-
-
 

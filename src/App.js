@@ -15,6 +15,7 @@ import FAQ from './components/FAQ';
 import Partners from './components/Partners';
 import Doctors from './components/Doctors';
 import Timeline from './components/Timeline';
+import Services from './components/Services';
 import Blog from './components/Blog';
 import Map from './components/Map';
 import Blank_burger from './components/Blog_example/Blank_burger';
@@ -23,22 +24,23 @@ import Navbar_Blog from './components/navbar_components/Navbar_Blog';
 function App() {
   return (
     <Router>
-      <div className='text-black'>
+      <div className='text-black' style={{ filter: 'saturate(1.2)' }}>
         <Navbar />
         <Routes>
           <Route path="/" element={<>
             <Hero />
             <Sliders />
             <Nathan />
-            <Note />
             <Partners />
             <Doctors />
-            <Feature />
+            <Services />
+            {/* <Note /> */}
             <Process />
+            {/* <Feature /> */}
             <Cards />
+            <Timeline />
             <FAQ />
             <Newsletter />
-            <Timeline />
             <Blog />
             {/* <Map /> */}
           </>} />

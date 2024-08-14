@@ -69,7 +69,7 @@ export const Timeline = () => {
       ];
 
   return (
-    <div className='md:p-16 p-4 bg-diyBrown'>
+    <div className='md:p-16 p-4 bg-diyYellow'>
         <h1 className='text-4xl font-bold md:ml-14 mb-16'>智特历史</h1>
         <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">          
             {historyEvents.map((item, index) => (

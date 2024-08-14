@@ -1,25 +1,22 @@
 import React, { useState } from 'react';
-import { BsChevronCompactLeft, BsChevronCompactRight, BsDot } from 'react-icons/bs';
-import clinicCFP from '../assets/clinic_CFP.jpg'
-import clinic_NewEngland from '../assets/clinic_NewEngland2.jpg'
+import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
+import clinic_CFP from '../assets/clinic_CFP.jpg';
+import clinic_NewEngland from '../assets/clinic_NewEngland.jpg';
+import clinic_NewEngland2 from '../assets/clinic_NewEngland2.jpg';
+import clinic_LA from '../assets/clinic_LA.jpg';
+import clinic_HRC from '../assets/clinic_HRC_Encino.jpg';
+import clinic_NV from '../assets/clinic_NV.jpg';
+import clinic_MD from '../assets/clinic_MD.png';
 
 const Partners = () => {
   const slides = [
-    {
-      url: clinicCFP,
-    },
-    {
-      url: clinic_NewEngland,
-    },
-    {
-      url: 'https://images.unsplash.com/photo-1661961112951-f2bfd1f253ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2672&q=80',
-    },
-    {
-      url: 'https://images.unsplash.com/photo-1512756290469-ec264b7fbf87?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2253&q=80',
-    },
-    {
-      url: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2671&q=80',
-    },
+    { url: clinic_MD },
+    { url: clinic_CFP },
+    { url: clinic_NewEngland },
+    { url: clinic_LA },
+    { url: clinic_NewEngland2 },
+    { url: clinic_HRC },
+    { url: clinic_NV },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -42,38 +39,40 @@ const Partners = () => {
 
   return (
     <div className='flex flex-col h-screen w-full md:px-16 p-4 mt-4'>
-        <h1 className='w-full max-w-90 text-4xl font-bold mt-12 self-center text-left'> 合作伙伴 </h1>
-        <div className='max-w-90 h-full w-full m-auto py-16 relative group'>
-            
+      <h1 className='w-full max-w-90 text-5xl font-bold mt-12 self-center text-left'> 合作伙伴 </h1>
+      <div className='max-w-90 h-full w-full m-auto py-16 relative group'>
+        
         <div
-            style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
-            className='w-full h-[60vh]  md:h-full rounded-2xl bg-center bg-cover duration-500'
+          style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
+          className='w-full h-[60vh] md:h-full rounded-2xl bg-center bg-cover duration-500'
         ></div>
+        
         {/* Left Arrow */}
-        <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
-            <BsChevronCompactLeft onClick={prevSlide} size={30} />
+        <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-10 bg-black/20 text-white cursor-pointer'>
+          <BsChevronCompactLeft onClick={prevSlide} size={50} />
         </div>
+        
         {/* Right Arrow */}
-        <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
-            <BsChevronCompactRight onClick={nextSlide} size={30} />
+        <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-10 bg-black/20 text-white cursor-pointer'>
+          <BsChevronCompactRight onClick={nextSlide} size={50} />
         </div>
-        <div className='flex top-4 justify-center py-2'>
-            {slides.map((slide, slideIndex) => (
+        
+        {/* Dots Navigation */}
+        <div className='flex top-4 justify-center py-1 mt-16'>
+          {slides.map((slide, slideIndex) => (
             <div
-                key={slideIndex}
-                onClick={() => goToSlide(slideIndex)}
-                className='text-2xl cursor-pointer'
+              key={slideIndex}
+              onClick={() => goToSlide(slideIndex)}
+              className={`w-4 h-4 mx-6 rounded-full cursor-pointer ${
+                currentIndex === slideIndex ? 'bg-diyBlack' : 'border-2 border-diyBlack'
+              }`}
             >
-                <BsDot />
             </div>
-            ))}
+          ))}
         </div>
-        </div>
+      </div>
     </div>
   );
-
-  
-
 }
 
 export default Partners;

@@ -49,7 +49,7 @@ const Hero = () => {
     <div style={contentStyle}>
       <div style={containerStyle} className="center top h-screen relative">
         <div className="absolute top-0 right-0 p-4 flex flex-col justify-center" style={textStyle}>
-          <h1 className="text-6xl font-bold py-4">
+          <h1 className="text-8xl font-bold py-4">
             让 奇 迹 生 辉
           </h1>
           <p className="text-xl sm:text-2xl md:text-4xl font py-4">

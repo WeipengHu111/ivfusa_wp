@@ -5,22 +5,22 @@ import bg_banner from '../assets/nathan_banner.png'; // 导入背景图片
 
 const Nathan = () => {
   return (
-    <div className="flex flex-col w-full items-center justify-center p-4 md:p-16 bg-white">
-      <div className="flex flex-col lg:flex-row max-w-[1240px] items-start gap-7 text-black">
+    <div className="flex flex-col w-full items-center justify-center p-4 md:p-24 bg-white">
+      <div className="flex flex-col lg:flex-row items-start gap-7 text-black mt-14">
         <div className="relative self-center">
-          <img className='w-full md:w-[700px] h-auto mx-auto rounded' src={nathan} alt="Founder" />
+          <img className='w-full md:w-[1500px] h-auto mx-auto' src={nathan} alt="Founder" />
         </div>
-        <div className="flex-grow py-2 mx-2"> 
-          <h className="text-3xl font-bold tracking-widest leading-relaxed">张欣博士<br/>
+        <div className="flex-grow py-2 mx-0 w-full"> 
+          <h className="text-5xl font-bold tracking-widest leading-loose">张欣博士<br/>
           千人计划特聘专家<br/>
           </h>
-          <h1 className="text-xl mt-3 mb-1 tracking-widest ">
+          <h1 className="text-3xl mt-3 mb-1 tracking-widest leading-loose ">
             科技部海外创新创业人才专家<br/>
             ASRM美国生殖协会理事<br/>
             医药经济报中国医药行业新领袖人物。<br/>
             中国医疗集团有限公司(HK:08225)独立董事
           </h1>
-          <p className="text-base pt-1 tracking-widest leading-relaxed">
+          <p className="text-2xl pt-10 tracking-widest leading-loose">
           ■ 天津医科大学8年制临床医学博士 <br/>
           ■ 宾夕法尼亚大学药理学博士<br/>
           ■ 芝加哥大学工商管理硕士<br/>
@@ -33,6 +33,7 @@ const Nathan = () => {
           </p>
         </div>
       </div>
+      <div className="h-24"></div>  {/* This will create a 4rem (64px) space */}
       <div
         style={{
           backgroundImage: `url(${bg_banner})`,
@@ -42,19 +43,19 @@ const Nathan = () => {
           borderRadius: '1rem',
           padding: '1rem',
           margin: '1rem auto',
-          maxWidth: '70%',
+          //maxWidth: '70%',
         }}
-        className="w-full flex flex-col md:flex-row items-center justify-center"
+        className="w-full h-full flex flex-col md:flex-row items-center justify-center "
       >
-        <div className="py-8 px-6 mx-auto max-w-screen-xl sm:py-8 lg:px-6">
+        <div className="py-8 px-6 mx-auto max-w-screen-xl sm:py-8 lg:px-6 ">
           <div className="mx-auto max-w-screen-sm text-center">
-            <h2 className="mb-4 text-4xl tracking-tight font-extrabold leading-tight text-gray-900">
+            <h2 className="mb-4 text-5xl tracking-tight font-extrabold leading-tight text-diyLightBrown tracking-widest">
               张欣博士生殖医学科普直播
             </h2>
-            <p className="mb-4 font-light text-gray-500 md:text-lg">
+            <p className="mb-10 font-normal text-diyLightBrown md:text-4xl tracking-widest">
               每周日晚9点微信直播，一对一咨询
             </p>
-            <button className="btn bg-custom-green rounded-full px-6 text-black" onClick={() => document.getElementById('my_modal_2').showModal()}>
+            <button className="btn bg-transparent rounded-full font-normal text-2xl px-10 text-diyLightBrown border-diyLightBrown border-2" onClick={() => document.getElementById('my_modal_2').showModal()}>
               观看渠道
             </button>
             <dialog id="my_modal_2" className="modal w-full">
