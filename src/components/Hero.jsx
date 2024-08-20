@@ -1,60 +1,69 @@
-import React, { useState, useEffect } from 'react';
-import babyHands from '../assets/newbaby.png';
+import { useRef, useEffect, useState } from 'react';
 
-const Hero = () => {
+const easeOutQuad = (t) => t * (2 - t); // 一个简单的缓动函数
+
+const useSmoothScroll = () => {
   const [offsetY, setOffsetY] = useState(0);
-
-  const handleScroll = () => {
-    const scrollPosition = window.pageYOffset;
-    const windowHeight = window.innerHeight;
-    const textCenterPosition = windowHeight / 2;
-
-    if (scrollPosition < textCenterPosition) {
-      setOffsetY(scrollPosition);
-    } else {
-      setOffsetY(textCenterPosition);
-    }
-  };
+  const scrollRef = useRef(offsetY);
 
   useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.pageYOffset;
+      const windowHeight = window.innerHeight;
+      const textCenterPosition = windowHeight / 2;
+
+      const newOffsetY = scrollPosition < textCenterPosition ? scrollPosition : textCenterPosition;
+      scrollRef.current = newOffsetY;
+    };
+
+    const smoothScroll = () => {
+      setOffsetY((prevOffsetY) => {
+        const delta = scrollRef.current - prevOffsetY;
+        if (Math.abs(delta) > 0.5) {
+          return prevOffsetY + delta * easeOutQuad(0.1);
+        }
+        return scrollRef.current;
+      });
+      requestAnimationFrame(smoothScroll);
+    };
+
     window.addEventListener('scroll', handleScroll);
+    requestAnimationFrame(smoothScroll);
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
+  return offsetY;
+};
+
+const Hero = () => {
+  const offsetY = useSmoothScroll();
+
   const textStyle = {
-    transform: `translateY(calc(100vh - ${offsetY}px))`,
-    transition: 'transform 0.1s linear',
-    textAlign: 'right', // 将文本对齐方式设置为右对齐
-    paddingRight: '10%', // 适当调整右侧的边距
+    transform: `translate3d(0, calc(100vh - ${offsetY}px), 0)`,
+    textAlign: 'right',
+    paddingRight: '10%',
+    willChange: 'transform',
   };
 
-  const containerStyle = {
-    background: `url(${babyHands}) no-repeat`,
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
-    height: '100vh',
-    position: 'sticky',
-    top: '0',
-    overflow: 'hidden',
-  };
-
-  const contentStyle = {
-    height: '170vh', // 使页面足够长以触发滚动
-    overscrollBehavior: 'contain',  // 防止子内容滚动影响父背景
-  };
+  // Your component structure here
 
   return (
-    <div style={contentStyle}>
-      <div style={containerStyle} className="center top h-screen relative">
+    <div style={{ height: '170vh' }}>
+      <div
+        style={{
+          background: `url(${require('../assets/newbaby.png')}) no-repeat`,
+          backgroundSize: 'cover',
+          height: '100vh',
+          position: 'sticky',
+          top: '0',
+        }}
+      >
         <div className="absolute top-0 right-0 p-4 flex flex-col justify-center" style={textStyle}>
-          <h1 className="text-8xl font-bold py-4">
-            让 奇 迹 生 辉
-          </h1>
-          <p className="text-xl sm:text-2xl md:text-4xl font py-4">
-            —— 您 的 私 人 助 孕 管 家
-          </p>
+          <h1 className="text-5xl md:text-8xl font-bold py-4">让 奇 迹 生 辉</h1>
+          <p className="text-2xl sm:text-2xl md:text-4xl font py-4">—— 您 的 私 人 助 孕 管 家</p>
         </div>
       </div>
     </div>

@@ -3,12 +3,12 @@ import consulting_service from '../assets/consulting_service.png';
 
 const Services = () => {
   return (
-    <div className='flex flex-col min-h-screen w-full md:px-16 p-4 mt-0'>
-      <h1 className='w-full max-w-90 text-5xl font-bold mt-12 self-center text-left'> 咨询服务 </h1>
+    <div className='flex flex-col w-full md:px-16 p-4 mt-0'>
+      <h1 className='w-full max-w-90 text-3xl md:text-4xl lg:text-5xl pl-4 font-bold self-center text-left'> 咨询服务 </h1>
       <div className='max-w-90 w-full m-auto py-8 md:py-16 relative group'>
         
         {/* Single Clickable Image */}
-        <div className='flex justify-center'>
+        <div className='flex justify-center py-0 sm:px-8'>
           <img 
             src={consulting_service} 
             alt="Clinic" 

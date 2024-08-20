@@ -38,36 +38,37 @@ const Partners = () => {
   };
 
   return (
-    <div className='flex flex-col h-screen w-full md:px-16 p-4 mt-4'>
-      <h1 className='w-full max-w-90 text-5xl font-bold mt-12 self-center text-left'> 合作伙伴 </h1>
-      <div className='max-w-90 h-full w-full m-auto py-16 relative group'>
+    <div className='flex flex-col w-full md:px-16 p-4 mt-4'>
+      <h1 className='text-3xl md:text-4xl lg:text-5xl pl-4 font-bold py-0 sm:mt-12'>
+        合作伙伴
+      </h1>
+      <div className='max-w-full h-[50vh] md:h-[60vh] lg:h-[70vh] w-full m-auto py-8 relative group'>
         
         <div
           style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
-          className='w-full h-[60vh] md:h-full rounded-2xl bg-center bg-cover duration-500'
+          className='w-full h-full rounded-2xl bg-center bg-cover duration-500'
         ></div>
         
         {/* Left Arrow */}
-        <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-10 bg-black/20 text-white cursor-pointer'>
-          <BsChevronCompactLeft onClick={prevSlide} size={50} />
+        <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-4 md:p-10 bg-black/20 text-white cursor-pointer'>
+          <BsChevronCompactLeft onClick={prevSlide} className="w-8 h-8 md:w-12 md:h-12" />
         </div>
         
         {/* Right Arrow */}
-        <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-10 bg-black/20 text-white cursor-pointer'>
-          <BsChevronCompactRight onClick={nextSlide} size={50} />
+        <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-4 md:p-10 bg-black/20 text-white cursor-pointer'>
+          <BsChevronCompactRight onClick={nextSlide} className="w-8 h-8 md:w-12 md:h-12" />
         </div>
         
         {/* Dots Navigation */}
-        <div className='flex top-4 justify-center py-1 mt-16'>
+        <div className='flex top-4 justify-center py-4 mt-4'>
           {slides.map((slide, slideIndex) => (
             <div
               key={slideIndex}
               onClick={() => goToSlide(slideIndex)}
-              className={`w-4 h-4 mx-6 rounded-full cursor-pointer ${
+              className={`w-3 h-3 md:w-4 md:h-4 mx-2 md:mx-6 rounded-full cursor-pointer ${
                 currentIndex === slideIndex ? 'bg-diyBlack' : 'border-2 border-diyBlack'
               }`}
-            >
-            </div>
+            ></div>
           ))}
         </div>
       </div>

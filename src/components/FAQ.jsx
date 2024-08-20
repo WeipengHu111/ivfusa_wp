@@ -4,15 +4,14 @@ const Accordion = ({ title, answer }) => {
   const [accordionOpen, setAccordionOpen] = useState(false);
 
   return (
-    <div className="p-2 w-full bg-white/40 my-4 rounded-3xl">
+    <div className="p-2 w-full bg-white/40 my-4 text-sm sm:text-base rounded-3xl">
       <button
         onClick={() => setAccordionOpen(!accordionOpen)}
         className="flex justify-between w-full"
       >
         <span className="m-1">{title}</span>
-        {/* {accordionOpen ? <span>-</span> : <span>+</span>} */}
         <svg
-          className="fill-custom-green shrink-0 m-1"
+          className="fill-black shrink-0 m-1"
           width="16"
           height="16"
           xmlns="http://www.w3.org/2000/svg"
@@ -52,8 +51,11 @@ const Accordion = ({ title, answer }) => {
 
 const FAQ = () => {
   return (
-    <div className="bg-gray-300">
-      <div className=" self-center max-w-[1240px] mx-auto p-8 rounded-3xl">
+    <div className="bg-[#f5efef]">
+      {/* 标题移到容器外 */}
+      <h2 className="px-8 pt-10 md:px-12 md:pt-14 lg:px-14 lg:pt-16 text-3xl md:text-4xl lg:text-5xl tracking-wider font-bold text-[#2D2D2D] text-left mb-8">常见问题</h2>
+
+      <div className="max-w-[2000px] px-10 pb-4 sm:px-36 sm:pb-6 md:px-56 md:pb-8 lg:px-60 lg:pb-12 mx-auto rounded-3xl">
         <Accordion
             title="第一个问题多少岁冻卵"
             answer="第一个问题的答案35岁以前"

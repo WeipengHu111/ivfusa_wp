@@ -41,8 +41,8 @@ const ProductInfo = () => {
   return (
     <div className='flex flex-col'>
       {/* 流程演示标题放在黄色背景的上方 */}
-      <div className='p-16'>
-        <h1 className='text-5xl font-bold text-left mb-0'> 流程演示 </h1>
+      <div className='pb-4 pl-8 md:pl-20 lg:pl-20'>
+        <h1 className='text-3xl md:text-4xl lg:text-5xl font-bold text-left mb-0'> 流程演示 </h1>
       </div>
 
       {/* 黄色背景内容部分 */}
@@ -52,7 +52,7 @@ const ProductInfo = () => {
             <div className="md:text-center w-full md:basis-1/3 m-6">
             {steps.map((step) => (
                 <div key={step.id} className="m-6 pb-4 border-b-2 border-gray-300">
-                    <div className="text-3xl text-left font-semibold">
+                    <div className="text-base lg:text-3xl text-left font-semibold">
                         <div className="flex flex-row justify-between cursor-pointer mb-2" onClick={() => toggleActiveProduct(step.id)}>
                             {step.title}
                             {activeProduct === step.id ? <AiOutlineUp size={25}/> : <AiOutlineDown size={25}/>}

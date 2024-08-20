@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+# 更新日志 / Update Log
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 2024年8月19日更新内容 / August 19, 2024 Updates:
 
-## Available Scripts
+1. 对照设计图针对**所有**组件进行了布局更新。
+   - Updated the layout for **all** components according to the design.
 
-In the project directory, you can run:
+2. 对照设计图针对**所有**组件色彩，标志，等做了更新。
+   - Updated colors, logos, etc., for **all** components according to the design.
 
-### `yarn start`
+3. 针对设计图对**所有**组件都实现了自适应功能，文字，图片，布局可根据不同屏幕大小响应。
+   - Implemented responsive features for **all** components according to the design, with text, images, and layout adjusting to different screen sizes.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+4. 解决了在移动端封面组件文字滑动卡顿的问题。
+   - Resolved the issue of text scrolling lag in the cover component on mobile devices.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 2024年7月17日更新内容 / July 17, 2024 Updates:
 
-### `yarn test`
+1. 生成了navbar中博客咨询的新组件（navbar_blog.jsx组件）。
+   - Created a new component for blog consultation in the navbar (`navbar_blog.jsx` component).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. 添加了“展开更多”功能在navbar_blog.jsx组件中。
+   - Added a "Load More" feature in the `navbar_blog.jsx` component.
 
-### `yarn build`
+3. 部署添加支持Strapi。
+   - Deployed support for Strapi.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 2024年7月16日更新内容 / July 16, 2024 Updates:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. 实现了blog组件中，每一个模块根据API ID加载对应文章内容。
+   - Implemented loading of corresponding article content in each module of the blog component based on API ID.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. 实现了给blog里对应文章添加类别标签，做到文章可以在Strapi中定义类别。
+   - Added category tags to corresponding articles in the blog, allowing categories to be defined in Strapi.
 
-### `yarn eject`
+3. 实现了组件动态加载文章类别（不用固定类别数量了，直接在Strapi上添加文章类别，页面中的类别栏目就会自动增加类别）。
+   - Implemented dynamic loading of article categories in the component (no fixed number of categories; categories added in Strapi will automatically appear in the category section on the page).
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+4. 实现了blog组件中针对不同类别文章的过滤功能。
+   - Implemented filtering functionality in the blog component for articles of different categories.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+5. blog组件中文章按照更新时间排列。
+   - Arranged articles in the blog component by update time.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+6. blog组件模块固定数量，实现翻页效果。
+   - Fixed the number of modules in the blog component and implemented pagination.
