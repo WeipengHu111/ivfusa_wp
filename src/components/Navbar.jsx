@@ -33,7 +33,7 @@ const Navbar = () => {
       
       {/* 左侧Logo */}
       <Link to="/">
-        <img src={logo} alt='Logo' className='h-auto w-[100px] sm:w-[150px] sm:m-2' />
+        <img src={logo} alt='Logo' className='h-[40px] w-full m-2' />
       </Link>
 
       {/* 右侧菜单（桌面端） */}
