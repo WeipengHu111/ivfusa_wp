@@ -33,7 +33,7 @@ const Navbar = () => {
       
       {/* 左侧Logo */}
       <Link to="/">
-        <img src={logo} alt='Logo' className='h-[40px] w-full m-2' />
+        <img src={logo} alt='Logo' className='h-auto w-[100px] sm:w-[150px] sm:m-2' />
       </Link>
 
       {/* 右侧菜单（桌面端） */}
@@ -82,7 +82,7 @@ const Navbar = () => {
       <ul className={`fixed top-0 left-0 w-[70%] h-full bg-white shadow-md p-4 transform ${nav ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300`}>
         <li className='flex items-center border-b pb-2'>
           <Link to="/" onClick={handleNav}>
-            <img src={logo} alt='Logo' className='h-[40px] w-full m-2' />
+            <img src={logo} alt='Logo' className='h-auto w-[100px] sm:w-[150px] sm:m-2' />
           </Link>
         </li>
         <li className='mt-4'>
