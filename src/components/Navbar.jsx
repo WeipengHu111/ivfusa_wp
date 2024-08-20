@@ -25,7 +25,7 @@ const Navbar = () => {
     <div className='fixed flex justify-between items-center h-20 w-screen px-4 top-0 z-10 bg-white shadow-sm'>
       {/* 左侧Logo */}
       <Link to="/">
-        <img src={logo} alt='Logo' className='w-full h-[55px] m-2' />
+        <img src={logo} alt='Logo' className='h-[40px] md:w-full md:h-[55px] m-2' />
       </Link>
 
       {/* 右侧菜单 */}
@@ -80,7 +80,7 @@ const Navbar = () => {
       <ul className={`fixed top-0 left-0 w-[70%] h-full bg-white shadow-md p-4 transform ${nav ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300`}>
         <li className='flex items-center border-b pb-2'>
           <Link to="/" onClick={handleNav}>
-            <img src={logo} alt='Logo' className='w-full h-[50px] m-2' />
+            <img src={logo} alt='Logo' className='h-[40px] md:w-full md:h-[55px] m-2' />
           </Link>
         </li>
         <li className='mt-4'>
