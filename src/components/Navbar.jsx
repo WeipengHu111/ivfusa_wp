@@ -86,13 +86,13 @@ const Navbar = () => {
           </Link>
         </li>
         <li className='mt-4'>
-          <details open>
+          <details close>
             <summary className='text-xl cursor-pointer'>生殖医学解决方案</summary>
             <ul className='pl-4'>
               <li><a href="#" className="block text-lg py-2">生育力储存</a></li>
               <li><a href="#" className="block text-lg py-2">试管婴儿</a></li>
               <li>
-                <details open>
+                <details close>
                   <summary className='text-lg cursor-pointer'>第三方辅助生殖</summary>
                   <ul className='pl-4'>
                     <li><a href="#" className="block text-lg py-2">机构</a></li>
@@ -105,7 +105,7 @@ const Navbar = () => {
         </li>
         <li className='text-xl border-t-2 mt-3 pt-3'><a href="#" className="block text-lg py-2">合作伙伴</a></li>
         <li className='border-t-2 mt-3 pt-3'>
-          <details open>
+          <details close>
             <summary className='text-xl cursor-pointer'>关于我们</summary>
             <ul className='pl-4'>
               <li><a href="#" className="block text-lg py-2">发展历程</a></li>
