@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
 
-const easeOutQuad = (t) => t * (2 - t); // 一个简单的缓动函数
+const easeOutQuad = (t) => 1 - (1 - t) * (1 - t); // 改进缓动函数
 
 const useSmoothScroll = () => {
   const [offsetY, setOffsetY] = useState(0);
@@ -13,14 +13,16 @@ const useSmoothScroll = () => {
       const textCenterPosition = windowHeight / 2;
 
       const newOffsetY = scrollPosition < textCenterPosition ? scrollPosition : textCenterPosition;
-      scrollRef.current = newOffsetY;
+      if (newOffsetY !== scrollRef.current) {
+        scrollRef.current = newOffsetY;
+      }
     };
 
     const smoothScroll = () => {
       setOffsetY((prevOffsetY) => {
         const delta = scrollRef.current - prevOffsetY;
         if (Math.abs(delta) > 0.5) {
-          return prevOffsetY + delta * easeOutQuad(0.1);
+          return prevOffsetY + delta * easeOutQuad(0.1); // 调整参数
         }
         return scrollRef.current;
       });
@@ -42,13 +44,11 @@ const Hero = () => {
   const offsetY = useSmoothScroll();
 
   const textStyle = {
-    transform: `translate3d(0, calc(100vh - ${offsetY}px), 0)`,
+    transform: `translateY(calc(100vh - ${offsetY}px))`, // 使用 translateY 替代 translate3d
     textAlign: 'right',
     paddingRight: '10%',
     willChange: 'transform',
   };
-
-  // Your component structure here
 
   return (
     <div style={{ height: '170vh' }}>

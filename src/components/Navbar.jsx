@@ -6,6 +6,7 @@ import logo from '../assets/logo.png';
 const Navbar = () => {
   const [nav, setNav] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [openMenus, setOpenMenus] = useState({});
 
   const handleNav = () => {
     setNav(!nav);
@@ -13,7 +14,7 @@ const Navbar = () => {
 
   const handleScroll = () => {
     const offset = window.scrollY;
-    if (offset > 100) { // 这里可以根据需要调整触发滚动的偏移量
+    if (offset > 100) {
       setScrolled(true);
     } else {
       setScrolled(false);
@@ -27,6 +28,13 @@ const Navbar = () => {
     };
   }, []);
 
+  const toggleMenu = (menu) => {
+    setOpenMenus((prev) => ({
+      ...prev,
+      [menu]: !prev[menu],
+    }));
+  };
+
   return (
     <div className={`fixed flex justify-between items-center h-20 w-screen px-4 top-0 z-10 bg-white shadow-sm 
       ${scrolled ? 'bg-[#f1e6c3]/90' : 'bg-transparent'}`}>
@@ -39,33 +47,48 @@ const Navbar = () => {
       {/* 右侧菜单（桌面端） */}
       <ul className='hidden md:flex space-x-10 text-xl text-gray-800'>
         <li className='relative'>
-          <button className="hover:text-green-600 focus:outline-none">
+          <button 
+            onClick={() => toggleMenu('solutions')}
+            className="hover:text-green-600 focus:outline-none"
+          >
             生殖医学解决方案 <span className="ml-1" style={{ fontSize: '0.75em' }}>▼</span>
           </button>
-          <ul className="absolute left-0 top-full bg-white shadow-md rounded-md mt-2 min-w-[200px] hidden group-hover:block">
-            <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">生育力储存</a></li>
-            <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">试管婴儿</a></li>
-            <li className='relative'>
-              <button className="block px-4 py-2 hover:bg-gray-100 focus:outline-none">
-                第三方辅助生殖 <span className="ml-1" style={{ fontSize: '0.75em' }}>▼</span>
-              </button>
-              <ul className="absolute left-full top-0 bg-white shadow-md rounded-md hidden group-hover:block">
-                <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">机构</a></li>
-                <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">咨询</a></li>
-              </ul>
-            </li>
-          </ul>
+          {openMenus.solutions && (
+            <ul className="absolute left-0 top-full bg-white rounded-md mt-2 min-w-[200px]">
+              <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">生育力储存</a></li>
+              <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">试管婴儿</a></li>
+              <li className='relative'>
+                <button 
+                  onClick={() => toggleMenu('thirdParty')}
+                  className="block px-4 py-2 hover:bg-gray-100 focus:outline-none"
+                >
+                  第三方辅助生殖 <span className="ml-1" style={{ fontSize: '0.75em' }}>▼</span>
+                </button>
+                {openMenus.thirdParty && (
+                  <ul className="bg-white rounded-md ml-4 mt-2">
+                    <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">机构</a></li>
+                    <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">咨询</a></li>
+                  </ul>
+                )}
+              </li>
+            </ul>
+          )}
         </li>
         <li><a href="#" className="hover:text-green-600">合作伙伴</a></li>
         <li className='relative'>
-          <button className="hover:text-green-600 focus:outline-none">
+          <button 
+            onClick={() => toggleMenu('about')}
+            className="hover:text-green-600 focus:outline-none"
+          >
             关于我们 <span className="ml-1" style={{ fontSize: '0.75em' }}>▼</span>
           </button>
-          <ul className="absolute left-0 top-full bg-white shadow-md rounded-md mt-2 min-w-[200px] hidden group-hover:block">
-            <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">发展历程</a></li>
-            <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">智特荣誉</a></li>
-            <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">人才招募</a></li>
-          </ul>
+          {openMenus.about && (
+            <ul className="absolute left-0 top-full bg-white rounded-md mt-2 min-w-[200px]">
+              <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">发展历程</a></li>
+              <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">智特荣誉</a></li>
+              <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">人才招募</a></li>
+            </ul>
+          )}
         </li>
         <li><Link to="/navbar_blog" className="hover:text-green-600">博客资讯</Link></li>
         <li className="pr-6">
@@ -86,13 +109,13 @@ const Navbar = () => {
           </Link>
         </li>
         <li className='mt-4'>
-          <details close>
+          <details>
             <summary className='text-xl cursor-pointer'>生殖医学解决方案</summary>
             <ul className='pl-4'>
               <li><a href="#" className="block text-lg py-2">生育力储存</a></li>
               <li><a href="#" className="block text-lg py-2">试管婴儿</a></li>
               <li>
-                <details close>
+                <details>
                   <summary className='text-lg cursor-pointer'>第三方辅助生殖</summary>
                   <ul className='pl-4'>
                     <li><a href="#" className="block text-lg py-2">机构</a></li>
@@ -105,7 +128,7 @@ const Navbar = () => {
         </li>
         <li className='text-xl border-t-2 mt-3 pt-3'><a href="#" className="block text-lg py-2">合作伙伴</a></li>
         <li className='border-t-2 mt-3 pt-3'>
-          <details close>
+          <details>
             <summary className='text-xl cursor-pointer'>关于我们</summary>
             <ul className='pl-4'>
               <li><a href="#" className="block text-lg py-2">发展历程</a></li>
