@@ -45,13 +45,13 @@ const Navbar = () => {
       </Link>
 
       {/* 右侧菜单（桌面端） */}
-      <ul className='hidden md:flex space-x-10 text-xl text-gray-800'>
+      <ul className='hidden md:flex space-x-10 text-base lg:text-xl text-gray-800'>
         <li className='relative'>
           <button 
             onClick={() => toggleMenu('solutions')}
             className="hover:text-green-600 focus:outline-none"
           >
-            生殖医学解决方案 <span className="ml-1" style={{ fontSize: '0.75em' }}>▼</span>
+            生殖医学解决方案 <span className="ml-0" style={{ fontSize: '0.55em' }}>▼</span>
           </button>
           {openMenus.solutions && (
             <ul className="absolute left-0 top-full bg-white rounded-md mt-2 min-w-[200px]">
@@ -62,7 +62,7 @@ const Navbar = () => {
                   onClick={() => toggleMenu('thirdParty')}
                   className="block px-4 py-2 hover:bg-gray-100 focus:outline-none"
                 >
-                  第三方辅助生殖 <span className="ml-1" style={{ fontSize: '0.75em' }}>▼</span>
+                  第三方辅助生殖 <span className="ml-0" style={{ fontSize: '0.55em' }}>▼</span>
                 </button>
                 {openMenus.thirdParty && (
                   <ul className="bg-white rounded-md ml-4 mt-2">

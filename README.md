@@ -1,5 +1,10 @@
 # 更新日志 / Update Log
 
+## 2024年8月27日更新内容 / August 27, 2024 Updates:
+
+1. 更新了下拉菜单逻辑，使嵌套菜单在主菜单内显示并移除了边框阴影。
+   - Updated the dropdown menu logic to display nested menus within the main menu and removed the border shadow.
+
 ## 2024年8月19日更新内容 / August 19, 2024 Updates:
 
 1. 对照设计图针对**所有**组件进行了布局更新。

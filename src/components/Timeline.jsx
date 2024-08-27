@@ -76,7 +76,7 @@ export const Timeline = () => {
             <h1 className='text-3xl md:text-4xl lg:text-5xl font-bold pl-10 pt-10 pb-10'>智特历史</h1>
             
             <div 
-                className="p-4 md:p-20 bg-cover min-h-[100vh] w-full md:bg-cover md:min-h-[180vh] md:w-full" 
+                className="p-4 md:p-20 bg-cover min-h-[100vh] w-full md:bg-cover md:min-h-[180vh] md:w-full 2xl:min-h-[300vh]" 
                 style={{ 
                     backgroundImage: `url(${timeline_bg})`, 
                     // backgroundSize: 'cover',  // 默认大屏幕背景图设置

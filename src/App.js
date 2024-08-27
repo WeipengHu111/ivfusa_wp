@@ -44,9 +44,9 @@ function App() {
             <Newsletter />
             {/* <Map /> */}
           </>} />
-          {/* <Route path="/blog" element={<Blog />} />
+          <Route path="/blog" element={<Blog />} />
           <Route path="/Navbar_Blog" element={<Navbar_Blog />} /> 
-          <Route path="/Blog_example/Blank_burger/:id" element={<Blank_burger />} /> */}
+          <Route path="/Blog_example/Blank_burger/:id" element={<Blank_burger />} />
         </Routes>
         <Footer />
       </div>
